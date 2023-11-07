@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tela admin */
+#sidebar {
+    min-height: 100vh;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+.logo img {
+    height: 12rem;
+}
+
+.btn-sidebar {
+    width: 10rem;
+}
+
+.btn-sair {
+    width: 10rem;
+}
+
+.nav-item {
+    font-size: 18px;
+}
+
+.nav-item a {
+    color: #FFF;
+}
+
+.nav-item a:hover {
+    color: #FFF;
+}
+
+.main-card {
+    min-height: 750px;
+}
+
+/* Listagem alunos */
