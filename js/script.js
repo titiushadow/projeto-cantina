@@ -38,27 +38,8 @@ $(document).ready(function() {
         var nomePrato = $(this).data('nomeprato');
         var id = $(this).data('id');
 
-        // Atualize o campo de entrada oculta com o ID
         $('#modalItemId').val(id);
 
         $('#myModal .modal-body').html('<h5>Nome do prato: </h5> <p>' + nomePrato + '</p> <h5>Descrição do prato: </h5> <p>' + prato + '</p>');
-    });
-});
-
-$(document).ready(function() {
-    $('.switch-aluno').change(function() {
-        const idItem = $(this).data('id');
-        const ativo = $(this).prop('checked'); // Verifica se o switch está ativo (true) ou desativado (false)
-        const nome = 'Nome do Aluno'; // Substitua pelo nome do aluno
-
-        // Envie os dados para o servidor usando AJAX para atualizar a tabela "refeicaoAlunos"
-        $.ajax({
-            url: 'atualizar_refeicao_aluno.php',
-            method: 'POST',
-            data: { idItem, ativo, nome },
-            success: function(response) {
-                // Atualize a informação na tela do administrador em tempo real aqui, se necessário
-            }
-        });
     });
 });

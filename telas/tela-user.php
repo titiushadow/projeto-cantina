@@ -56,7 +56,7 @@ $result = mysqli_query($conn, $sql);
                                 </div>      
     
                                 <div class="d-flex justify-content-between">
-                                    <button type="submit" name="cadastrar" class="btn btn-success">Enviar</button>
+                                <button type="submit" name="cadastrar" class="btn btn-success">Enviar</button>
                                     <button type="reset" class="btn btn-danger">Limpar</button>
                                 </div>
                             </form>

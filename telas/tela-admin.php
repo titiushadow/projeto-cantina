@@ -27,12 +27,6 @@
                                     echo date('d/m/Y'); 
                                 ?>
                             </p>
-                            <p>
-                                <?php 
-                                    date_default_timezone_set('America/Sao_Paulo');
-                                    echo date('h:i:s A');
-                                ?>
-                            </p>
                         </div>
                     </div>
                     <hr>
@@ -46,7 +40,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <h2 class="mt-3">Sujestões e comentarios</h2>
+                            <h2 class="mt-3 mb-3 text-center">Sujestões e comentarios</h2>
                             <ol class="list-group gap-2">
                                 <?php 
                                 include '../backend/comentario/comentario-data.php';
