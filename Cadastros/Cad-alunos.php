@@ -11,7 +11,7 @@
     ?>
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <h1 class="mb-4 text-center">Cadastro de Alunos</h1>
-        <form method="post" action="../backend/processar_cadastro_aluno.php">
+        <form method="POST" action="../backend/processar_cadastro_aluno.php">
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome:</label>
                 <input type="text" class="form-control" name="nome" required>
