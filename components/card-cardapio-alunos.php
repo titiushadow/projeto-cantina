@@ -38,7 +38,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     echo '<div class="form-check form-switch">';
     echo '<input class="form-check-input switch-aluno" type="checkbox" id="flexSwitchCheckDefault" data-id="' . $idItem . '">';
 
-    // Aqui você pode adicionar um label personalizado
     echo '<label class="form-check-label" for="flexSwitchCheckDefault">';
     echo 'Vou comer: <span id="switch-label' . $idItem . '">' . ($vaiComer ? 'Sim' : 'Não') . '</span>';
     echo '</label>';
