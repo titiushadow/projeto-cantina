@@ -23,7 +23,6 @@
                         echo "<button type='button' class='btn btn-success' data-dismiss='modal'>Cancelar</button>";
                     echo "</div>";
                 echo "</form>";
-                
                 ?>
             </div>
         </div>

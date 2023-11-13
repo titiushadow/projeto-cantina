@@ -36,11 +36,24 @@ $(document).ready(function() {
         let nomePrato = $(this).data('nomeprato');
         let id = $(this).data('id');
 
-        $('#modalItemId').val(id);
-
-        $('#myModal .modal-body').html('<h5>Nome do prato: </h5> <p>' + nomePrato + '</p> <h5>Descrição do prato: </h5> <p>' + prato + '</p>');
+        // Aqui você pode fazer uma requisição AJAX para obter a contagem de alunos que votaram "Sim"
+        $.ajax({
+            method: 'POST', // Mude para POST para enviar dados ao PHP
+            url: '../backend/atualizar_refeicao_aluno.php',
+            data: { id: id },
+            success: function(response) {
+                // Exibição no modal
+                $('#modalItemId').val(id);
+                $('#myModal .modal-body').html('<h5>Nome do prato: </h5> <p>' + nomePrato + '</p> <h5>Descrição: </h5> <p>' + prato + '</p>' + '<p>Quantidade de alunos: <span class="fw-bold">' + response);
+            },
+            error: function() {
+                console.log('Erro ao obter a contagem de alunos.');
+            }
+        });
     });
 });
+
+
 
 $(document).ready(function() {
     $('.switch-aluno').on('change', function() {
@@ -57,6 +70,9 @@ $(document).ready(function() {
                 } else {
                     $('#switch-label' + idItem).text('Não');
                 }
+
+                // Atualização no valor data-VaiComer do botão "Ver mais"
+                $('.ver-mais[data-id="' + idItem + '"]').data('VaiComer', vaiComer);
             },
             error: function() {
                 console.log('Erro ao atualizar o switch.');
@@ -64,3 +80,4 @@ $(document).ready(function() {
         });
     });
 });
+

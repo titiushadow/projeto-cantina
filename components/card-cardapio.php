@@ -6,6 +6,9 @@ while ($row = mysqli_fetch_assoc($result)) {
     $dataSemana = $row['Data_semana'];
     $prato = $row['Prato'];
     $nomePrato = $row['nomePrato'];
+    
+    // Verificação se 'VaiComer' existe no array antes de usá-lo
+    $VaiComer = isset($row['VaiComer']) ? $row['VaiComer'] : ''; 
 
     if ($dataSemana != $currentDay) {
         if ($currentDay !== null) {
@@ -19,9 +22,14 @@ while ($row = mysqli_fetch_assoc($result)) {
     }
 
     echo "<p>{$prato}</p>";
-    echo "<div class='d-flex justify-content-end'>
-    <button class='btn btn-primary btn-sm ver-mais' data-toggle='modal' data-target='#myModal' data-title='{$dataSemana}' data-prato='{$prato}' data-nomePrato='{$nomePrato}' data-id='{$idItem}'>Ver mais</button>
-    </div>";
+    echo "<div class='d-flex justify-content-end'>";
+    echo "<button class='btn btn-primary btn-sm ver-mais' data-toggle='modal' data-target='#myModal' 
+    data-title='{$dataSemana}' 
+    data-prato='{$prato}' 
+    data-nomePrato='{$nomePrato}' 
+    data-id='{$idItem}'
+    data-VaiComer='{$VaiComer}'>Ver mais</button>";
+    echo "</div>";
 }
 
 if ($currentDay !== null) {
@@ -29,6 +37,7 @@ if ($currentDay !== null) {
 }
 include '../components/modal.php';
 ?>
+
 
 <script src="../js/script.js"></script>
 
