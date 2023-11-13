@@ -4,7 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Admin</title>
-    <?php include '../components/imports/imports.php' ?>
+    <?php include '../components/imports/imports.php';
+    
+        require_once('../backend/conexao.php');
+        $sql = "SELECT ID, Data_semana, Prato, nomePrato FROM cardapio";
+        $result = mysqli_query($conn, $sql);
+
+        $idItem = 0; 
+        while ($row = mysqli_fetch_assoc($result)) {
+            $idItem = $row['ID']; 
+        }
+    ?>
 </head>
 <body>
     <div class="container-fluid">
@@ -36,6 +46,11 @@
                             <h3 class="mb-3 mt-3">Dias da semana</h3>
                             <?php
                                 include '../components/card-cardapio.php';
+                                if($idItem == 0) {
+                                    echo"<div class='alert alert-danger text-center w-50 mx-auto'>";
+                                    echo"Nenhum cardapio cadastrado!";
+                                    echo"</div>";
+                                }
                             ?>
                         </div>
 
