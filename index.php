@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-success">Login</button>
+                                <button type="submit" class="btn btn-success">Entrar</button>
                             </div>                        
                         </form>
                     </div>
