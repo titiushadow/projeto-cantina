@@ -1,20 +1,18 @@
 <?php
-// Conexão com o banco de dados (inclua o arquivo de conexão se necessário)
-require('./conexao.php');
+    // Consulta para selecionar todos os registros
+    $query = "SELECT ID, VaiComer FROM cardapio";
+    $result = mysqli_query($conn, $query);
 
-if (isset($_POST['ficha']) && isset($_POST['ativo']) && isset($_POST['nome'])) {
-    $ficha = $_POST['ficha'];
-    $ativo = $_POST['ativo'];
-    $nome = $_POST['nome'];
+    // Loop através dos resultados e atualização dos valores
+    while ($row = mysqli_fetch_assoc($result)) {
+        $id = $row['ID'];
+        $vaiComer = $row['VaiComer'];
 
-    // Atualize a tabela "refeicaoAlunos" com os dados do aluno
-    $query = "INSERT INTO refeicaoAlunos (ativo, nome) VALUES (?, ?)
-              ON DUPLICATE KEY UPDATE ativo = VALUES(ativo), nome = VALUES(nome)";
-    $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, 'is', $ativo, $nome);
-    mysqli_stmt_execute($stmt);
+        // Inverte o valor do VaiComer
+        $novoValor = $vaiComer == 0 ? 1 : 0;
 
-    // Responda com uma mensagem de sucesso (pode ser usado para atualização em tempo real na tela do administrador)
-    echo "Atualização bem-sucedida";
-}
+        // Atualiza o banco de dados
+        $updateQuery = "UPDATE cardapio SET VaiComer = $novoValor WHERE ID = ?";
+        mysqli_query($conn, $updateQuery);
+    }
 ?>

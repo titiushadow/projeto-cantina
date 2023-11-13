@@ -43,3 +43,26 @@ $(document).ready(function() {
         $('#myModal .modal-body').html('<h5>Nome do prato: </h5> <p>' + nomePrato + '</p> <h5>Descrição do prato: </h5> <p>' + prato + '</p>');
     });
 });
+
+$(document).ready(function() {
+    $('.switch-aluno').on('change', function() {
+        var idItem = $(this).data('id');
+        var vaiComer = $(this).is(':checked') ? 1 : 0;
+        
+        $.ajax({
+            method: 'POST',
+            url: '../../projeto-cantina/backend/atualizar_refeicao_aluno.php',
+            data: { idItem: idItem, vaiComer: vaiComer },
+            success: function(response) {
+                if (vaiComer === 1) {
+                    $('#switch-label' + idItem).text('Sim');
+                } else {
+                    $('#switch-label' + idItem).text('Não');
+                }
+            },
+            error: function() {
+                console.log('Erro ao atualizar o switch.');
+            }
+        });
+    });
+});
