@@ -36,12 +36,15 @@ while ($row = mysqli_fetch_assoc($result)) {
     // Switch votação
     echo "<div class='d-flex justify-content-end'>";
     echo '<div class="form-check form-switch">';
-    echo '<input class="form-check-input switch-aluno" type="checkbox" id="flexSwitchCheckDefault" data-id="' . $idItem . '">';
-
-    echo '<label class="form-check-label" for="flexSwitchCheckDefault">';
-    echo 'Vou comer: <span id="switch-label' . $idItem . '">' . ($vaiComer ? 'Sim' : 'Não') . '</span>';
+    echo '<input class="form-check-input switch-aluno" type="checkbox" id="flexSwitchCheckDefault' . $idItem . '" data-id="' . $idItem . '" data-vai-comer="' . $vaiComer . '"';
+    if ($vaiComer == 1) {
+        echo ' checked';
+    }
+    echo '>';
+    echo '<label class="form-check-label" for="flexSwitchCheckDefault' . $idItem . '">';
+    echo 'Vou comer: <span id="switch-label' . $idItem . '">' . ($vaiComer == 1 ? 'Sim' : 'Não') . '</span>';
     echo '</label>';
-    
+
     echo '</div>';
     echo "</div>";    
 }

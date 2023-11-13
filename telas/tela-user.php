@@ -47,6 +47,8 @@
                                     echo"<div class='alert alert-danger text-center w-50 mx-auto'>";
                                     echo"Nenhum cardapio cadastrado!";
                                     echo"</div>";
+                                } else {
+                                    // Mostra o cardapio normalmente
                                 }
                             ?>
                         </div>

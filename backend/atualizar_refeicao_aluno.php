@@ -1,14 +1,19 @@
 <?php
-    $query = "SELECT ID, VaiComer FROM cardapio";
-    $result = mysqli_query($conn, $query);
+    $conn = mysqli_connect('localhost', 'root', '', 'projeto-cantina');
 
-    while ($row = mysqli_fetch_assoc($result)) {
-        $id = $row['ID'];
-        $vaiComer = $row['VaiComer'];
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id']) && isset($_POST['VaiComer'])) {
+        $id = $_POST['id'];
+        $vaiComer = $_POST['VaiComer'];
 
-        $novoValor = $vaiComer == 0 ? 1 : 0;
+        $updateQuery = "UPDATE cardapio SET VaiComer = $vaiComer WHERE ID = $id";
+        $updateResult = mysqli_query($conn, $updateQuery);
 
-        $updateQuery = "UPDATE cardapio SET VaiComer = $novoValor WHERE ID = ?";
-        mysqli_query($conn, $updateQuery);
+        if ($updateResult) {
+            echo "Atualização realizada com sucesso!";
+        } else {
+            echo "Erro na atualização: " . mysqli_error($conn);
+        }
+    } else {
+        echo "Parâmetros inválidos recebidos ou requisição inválida.";
     }
 ?>

@@ -1,23 +1,21 @@
-// Script para gerar numero de ficha aleatoriamente
 function gerarSenha() {
-    var senhaInput = document.getElementById('senha');
-    var senha = gerarSenhaAleatoria();
+    let senhaInput = document.getElementById('senha');
+    let senha = gerarSenhaAleatoria();
     senhaInput.value = senha;
 }
 
 function gerarSenhaAleatoria() {
-    var caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var senha = "";
-    for (var i = 0; i < 8; i++) {
+    let caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let senha = "";
+    for (let i = 0; i < 8; i++) {
         senha += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
     }
     return senha;
 }
 
-// Abrir modal para (Atualizar cardapio ou excluir)
 $(document).ready(function() {
     $(document).on('click', '.ver-mais', function() {
-        var title = $(this).data('title');
+        let title = $(this).data('title');
         $('#modalTitle').text(title);
 
         $('#myModal').modal('show');
@@ -34,9 +32,9 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $('.ver-mais').click(function() {
-        var prato = $(this).data('prato');
-        var nomePrato = $(this).data('nomeprato');
-        var id = $(this).data('id');
+        let prato = $(this).data('prato');
+        let nomePrato = $(this).data('nomeprato');
+        let id = $(this).data('id');
 
         $('#modalItemId').val(id);
 
@@ -46,13 +44,13 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $('.switch-aluno').on('change', function() {
-        var idItem = $(this).data('id');
-        var vaiComer = $(this).is(':checked') ? 1 : 0;
-        
+        let idItem = $(this).data('id');
+        let vaiComer = $(this).is(':checked') ? 1 : 0;
+
         $.ajax({
             method: 'POST',
             url: '../../projeto-cantina/backend/atualizar_refeicao_aluno.php',
-            data: { idItem: idItem, vaiComer: vaiComer },
+            data: { id: idItem, VaiComer: vaiComer },
             success: function(response) {
                 if (vaiComer === 1) {
                     $('#switch-label' + idItem).text('Sim');
