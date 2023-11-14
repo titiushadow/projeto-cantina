@@ -10,7 +10,7 @@ if (isset($_POST['editar'])) {
 
     // Você pode adicionar os campos adicionais, como email e número de ficha, aqui
 
-    $sql = "UPDATE alunos SET Nome = '$nome', Turma = '$turma', Email = '$email', Numero_ficha = '$Numero_ficha' WHERE ID = $id";
+    $sql = "UPDATE alunos SET Nome = '$nome', Turma = '$turma', Email = '$email', Numero_ficha = '$Numero_ficha' WHERE ID_aluno = $id";
 
     if (mysqli_query($conn, $sql)) {
         header("Location: /projeto-cantina/Listagem/Listagem-alunos.php");

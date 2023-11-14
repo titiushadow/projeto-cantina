@@ -7,12 +7,12 @@
     <?php include '../components/imports/imports.php';
     
         require_once('../backend/conexao.php');
-        $sql = "SELECT ID, Data_semana, Prato, nomePrato FROM cardapio";
+        $sql = "SELECT ID_cardapio, Data_semana, Prato, nomePrato FROM cardapio";
         $result = mysqli_query($conn, $sql);
 
         $idItem = 0; 
         while ($row = mysqli_fetch_assoc($result)) {
-            $idItem = $row['ID']; 
+            $idItem = $row['ID_cardapio']; 
         }
     ?>
 </head>

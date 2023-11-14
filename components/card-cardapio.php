@@ -2,7 +2,7 @@
 $currentDay = null;
 
 while ($row = mysqli_fetch_assoc($result)) {
-    $idItem = $row['ID']; 
+    $idItem = $row['ID_cardapio']; 
     $dataSemana = $row['Data_semana'];
     $prato = $row['Prato'];
     $nomePrato = $row['nomePrato'];

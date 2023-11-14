@@ -33,7 +33,7 @@
 
             $id = $_GET['id'];
 
-            $sql = "SELECT ID, Nome, Turma, Numero_ficha, email FROM alunos WHERE ID = $id";
+            $sql = "SELECT ID_aluno, Nome, Turma, Numero_ficha, email FROM alunos WHERE ID_aluno = $id";
 
             $result = mysqli_query($conn, $sql);
 
@@ -41,7 +41,7 @@
                 $aluno = mysqli_fetch_assoc($result);
         ?>
         <form method="post" action="../../processar_edicao_aluno.php">
-            <input type="hidden" name="id" value="<?php echo $aluno['ID']; ?>">
+            <input type="hidden" name="id" value="<?php echo $aluno['ID_aluno']; ?>">
 
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome:</label>

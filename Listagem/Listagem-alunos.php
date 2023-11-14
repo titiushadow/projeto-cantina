@@ -17,7 +17,7 @@
                 die("Erro na conexão com o banco de dados: " . mysqli_connect_error());
             }
 
-            $sql = "SELECT ID, Nome, Turma, Numero_ficha, email FROM alunos";
+            $sql = "SELECT ID_aluno, Nome, Turma, Numero_ficha, email FROM alunos";
 
             $result = mysqli_query($conn, $sql);
 
@@ -38,14 +38,14 @@
                 <?php
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<tr>";
-                        echo "<td>{$row['ID']}</td>";
+                        echo "<td>{$row['ID_aluno']}</td>";
                         echo "<td>{$row['Nome']}</td>";
                         echo "<td>{$row['Turma']}</td>";
                         echo "<td>{$row['Numero_ficha']}</td>";
                         echo "<td>{$row['email']}</td>";
                         echo "<td>
-                            <a href='../backend/acoes/excluir/excluir_aluno.php?id={$row['ID']}' class='btn btn-danger'>Excluir</a>
-                            <a href='../backend/acoes/editar/editar-aluno.php?id={$row['ID']}' class='btn btn-warning'>Editar</a>
+                            <a href='../backend/acoes/excluir/excluir_aluno.php?id={$row['ID_aluno']}' class='btn btn-danger'>Excluir</a>
+                            <a href='../backend/acoes/editar/editar-aluno.php?id={$row['ID_aluno']}' class='btn btn-warning'>Editar</a>
                         </td>";
                         echo "</tr>";
                     }
@@ -70,7 +70,7 @@
                 <?php
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<tr>";
-                        echo "<td>{$row['ID']}</td>";
+                        echo "<td>{$row['ID_aluno']}</td>";
                         echo "<td>{$row['Nome']}</td>";
                         echo "<td>{$row['Turma']}</td>";
                         echo "<td>{$row['Numero_ficha']}</td>";
