@@ -7,7 +7,7 @@ if (isset($_POST['editar'])) {
     $Data_semana = $_POST['Data_semana'];
     $Prato = $_POST['Prato'];
 
-    $sql = "UPDATE cardapio SET nomePrato = '$nomePrato', Data_semana = '$Data_semana', Prato = '$Prato' WHERE ID = $id";
+    $sql = "UPDATE cardapio SET nomePrato = '$nomePrato', Data_semana = '$Data_semana', Prato = '$Prato' WHERE ID_cardapio = $id";
 
     if (mysqli_query($conn, $sql)) {
         header("Location: ../../../../projeto-cantina/telas/tela-admin.php");

@@ -29,7 +29,7 @@
 
             $id = $_GET['id'];
 
-            $sql = "SELECT ID, nomePrato, Data_semana, Prato FROM cardapio WHERE ID = '$id'";
+            $sql = "SELECT ID_cardapio, nomePrato, Data_semana, Prato FROM cardapio WHERE ID_cardapio = '$id'";
             
             $result = mysqli_query($conn, $sql);
 
@@ -37,7 +37,7 @@
                 $prato = mysqli_fetch_assoc($result);
         ?>
         <form method="post" action="../../processar_edicao_cardapio.php">
-            <input type="hidden" name="id" value="<?php echo $prato['ID']; ?>">
+            <input type="hidden" name="id" value="<?php echo $prato['ID_cardapio']; ?>">
 
             <div class="mb-3">
                 <label for="nomePrato" class="form-label">Nome do Prato:</label>
