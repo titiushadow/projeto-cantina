@@ -41,7 +41,7 @@
 
             <div class="mb-3">
                 <label for="numero_ficha" class="form-label">Número de Ficha:</label>
-                <input type="text" class="form-control" name="numero_ficha" disabled value="<?php echo $numero_ficha; ?>" readonly>
+                <input type="text" class="form-control" name="numero_ficha" value="<?php echo $numero_ficha; ?>" readonly>
             </div>
 
             <button type="submit" name="cadastrar" class="btn btn-success">Cadastrar</button>

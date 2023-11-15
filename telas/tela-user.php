@@ -24,7 +24,7 @@
                 include '../backend/cardapio-data.php';
             ?>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <h1 class="text-muted text-center mt-5">Bem vindo a cantina virtual</h1>
+                <h1 class="text-muted text-center mt-5">Bem vindo(a) a cantina virtual</h1>
                 <div class="container mt-4 border border-1 main-card">
                     <div class="row">
                         <div class="col-md-6">

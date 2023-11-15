@@ -1,21 +1,28 @@
 <?php
 $conn = mysqli_connect('localhost', 'root', '', 'projeto-cantina');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id']) && isset($_POST['VaiComer'])) {
-    $id = $_POST['id'];
-    $vaiComer = $_POST['VaiComer'];
+if (!$conn) {
+    die("Conexão falhou: " . mysqli_connect_error());
+}
 
-    $updateQuery = "UPDATE cardapio SET VaiComer = $vaiComer WHERE ID = $id";
-    $updateResult = mysqli_query($conn, $updateQuery);
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ID_aluno']) && isset($_POST['VaiComer'])) {
+    $id_aluno = mysqli_real_escape_string($conn, $_POST['ID_aluno']);
+    $vaiComer = mysqli_real_escape_string($conn, $_POST['VaiComer']);
 
-    if ($updateResult) {
+    $updateQuery = "UPDATE refeicaoalunos SET VaiComer = ? WHERE ID_aluno = ?";
+    $stmt = mysqli_prepare($conn, $updateQuery);
+    mysqli_stmt_bind_param($stmt, "ii", $vaiComer, $id_aluno);
+    
+    if (mysqli_stmt_execute($stmt)) {
         echo "Atualização realizada com sucesso!";
     } else {
-        echo "Erro na atualização: " . mysqli_error($conn);
+        echo "Erro na atualização do voto: " . mysqli_stmt_error($stmt);
     }
+    
+    mysqli_stmt_close($stmt);
 } else {
-    // Se não houver parâmetros, retorne apenas a contagem de votos
-    $countQuery = "SELECT COUNT(*) AS count FROM cardapio WHERE VaiComer = 1";
+
+    $countQuery = "SELECT COUNT(*) AS count FROM refeicaoalunos WHERE VaiComer = 1";
     $countResult = mysqli_query($conn, $countQuery);
     $count = mysqli_fetch_assoc($countResult);
 

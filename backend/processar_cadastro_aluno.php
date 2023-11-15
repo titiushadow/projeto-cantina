@@ -8,7 +8,9 @@
         $email = $_POST['email'];
         $senha = $_POST['senha']; 
 
-        $sql = "INSERT INTO alunos (Nome, Turma, Numero_ficha, email, senha) VALUES ('$nome', '$turma', '$numero_ficha', '$email', '$senha')";
+        $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+
+        $sql = "INSERT INTO alunos (Nome, Turma, Numero_ficha, email, senha) VALUES ('$nome', '$turma', '$numero_ficha', '$email', '$senha_hash')";
 
         if (mysqli_query($conn, $sql)) {
             header("Location: ../Listagem/Listagem-alunos.php");

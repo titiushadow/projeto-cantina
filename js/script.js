@@ -1,3 +1,4 @@
+// Gerar senha aleatoria
 function gerarSenha() {
     let senhaInput = document.getElementById('senha');
     let senha = gerarSenhaAleatoria();
@@ -13,6 +14,7 @@ function gerarSenhaAleatoria() {
     return senha;
 }
 
+// Abrir e fechar modal
 $(document).ready(function() {
     $(document).on('click', '.ver-mais', function() {
         let title = $(this).data('title');
@@ -30,15 +32,15 @@ $(document).ready(function() {
     });
 });
 
+// Informações dentro do
 $(document).ready(function() {
     $('.ver-mais').click(function() {
         let prato = $(this).data('prato');
         let nomePrato = $(this).data('nomeprato');
         let id = $(this).data('id');
 
-        // Aqui você pode fazer uma requisição AJAX para obter a contagem de alunos que votaram "Sim"
         $.ajax({
-            method: 'POST', // Mude para POST para enviar dados ao PHP
+            method: 'POST',
             url: '../backend/atualizar_refeicao_aluno.php',
             data: { id: id },
             success: function(response) {
@@ -57,14 +59,17 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $('.switch-aluno').on('change', function() {
+        // Obtém o ID_aluno a partir do atributo data-id
         let idItem = $(this).data('id');
         let vaiComer = $(this).is(':checked') ? 1 : 0;
 
         $.ajax({
             method: 'POST',
             url: '../../projeto-cantina/backend/atualizar_refeicao_aluno.php',
-            data: { id: idItem, VaiComer: vaiComer },
+            data: { ID_aluno: idItem, VaiComer: vaiComer },
             success: function(response) {
+                console.log(response);
+
                 if (vaiComer === 1) {
                     $('#switch-label' + idItem).text('Sim');
                 } else {
@@ -74,10 +79,12 @@ $(document).ready(function() {
                 // Atualização no valor data-VaiComer do botão "Ver mais"
                 $('.ver-mais[data-id="' + idItem + '"]').data('VaiComer', vaiComer);
             },
-            error: function() {
-                console.log('Erro ao atualizar o switch.');
+            error: function(xhr, status, error) {
+                console.log('Erro ao atualizar o switch:', error);
             }
         });
     });
 });
+
+
 

@@ -65,6 +65,7 @@
                                     echo '<div class="alert alert-danger text-center">Não há comentários.</div>';
                                 } else {
                                     $comentarios;
+                                    echo '<a href="../Listagem/Listagem-sugestoes.php" class="btn btn-primary m-auto">Ver todas</a>';
                                 }
                                 ?>
                             </ol>

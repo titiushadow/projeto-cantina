@@ -9,7 +9,7 @@
         include '../components/sidebar.php';
     ?>
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <h1 class="text-muted">Lista de alunos</h1>
+        <h1 class="text-muted text-center">Lista de alunos</h1>
         <?php
             $conn = mysqli_connect('localhost', 'root', '', 'projeto-cantina');
 
