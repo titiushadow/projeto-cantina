@@ -12,7 +12,7 @@ where students can indicate whether they will have a meal on a specific day, sim
 
 ## 🚀 How to install Carteen management system
 
-To install the Carteen management system, follow these steps:
+To install the Canteen management system, follow these steps:
 
 Windows:
 ```
