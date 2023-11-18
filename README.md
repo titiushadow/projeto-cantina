@@ -1,8 +1,8 @@
 <h1 align="center" font-weight: bold; "> 👨‍🎓 Canteen management system 🏫</h1>
 
 <div style="display: flex; justify-content: space-around;">
-  <img src="https://github.com/titiushadow/projeto-cantina/assets/63453751/1d42cd3d-972b-4ad1-b0b9-2db067996ad0" alt="image1" width="450px"/>
-  <img src="https://github.com/titiushadow/projeto-cantina/assets/63453751/0ba129f6-3342-4a57-bb80-2b294583b958" alt="image2" width="450px"/>
+  <img src="https://github.com/titiushadow/projeto-cantina/assets/63453751/1d42cd3d-972b-4ad1-b0b9-2db067996ad0" alt="image1" width="400px"/>
+  <img src="https://github.com/titiushadow/projeto-cantina/assets/63453751/0ba129f6-3342-4a57-bb80-2b294583b958" alt="image2" width="400px"/>
 </div>
 
 <br>
