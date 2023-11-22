@@ -8,8 +8,6 @@ if (isset($_POST['editar'])) {
     $email = $_POST['email'];
     $Numero_ficha = $_POST['Numero_ficha'];
 
-    // Você pode adicionar os campos adicionais, como email e número de ficha, aqui
-
     $sql = "UPDATE alunos SET Nome = '$nome', Turma = '$turma', Email = '$email', Numero_ficha = '$Numero_ficha' WHERE ID_aluno = $id";
 
     if (mysqli_query($conn, $sql)) {
