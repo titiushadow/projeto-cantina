@@ -10,6 +10,12 @@
 > This project was assigned by my professor in the classroom. We had to develop a Canteen Management System,
 where students can indicate whether they will have a meal on a specific day, simplifying the control of the food service in the institution.
 
+## Technologies used:
+
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
+
 ## 🚀 How to install Carteen management system
 
 To install the Canteen management system, follow these steps:
